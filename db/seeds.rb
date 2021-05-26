@@ -27,13 +27,18 @@ end
 
 puts "🚗🚗🚗 Seeding rides 🚗🚗🚗..."
 # Create 20 random rides
-50.times do
+80.times do
 
   # TODO: create rides! Remember, a ride belongs to a driver
   # and a ride belongs to a passenger. Driver -< Ride >- Passenger
 
   # Feel free to use Faker for some fake pick up/drop off address data:
   # https://github.com/faker-ruby/faker/blob/master/doc/default/address.md
+  Ride.create(price: Faker::Commerce.price,
+              pick_up: Faker::Address.full_address,
+              drop_off: Faker::Address.full_address,
+              passenger_id: Passenger.ids.sample,
+              driver_id: Driver.ids.sample)
 
 end
 
